@@ -1,0 +1,58 @@
+
+{%extends 'base.html'%}
+
+
+{% block content %}
+
+
+
+<div class="container mt-7">
+ 
+    <div class="row " style="margin-top: 20px;margin-bottom: 10px;">
+
+        {% for p in product_Test %}
+        <div class="col-3 " style="border-radius: 8px;">
+
+            <div class="card" style="width: 18rem;">
+                <img src="{{ p.img.url }}" class="card-img-top" alt="..." style="width: 100%;height: 250px;">
+                <div class="card-body">
+                  <h5 class="card-title"> {{p.proname}}</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="{%url 'Detail_product' p.pk%}" class="/"> <p>Date Of Add </p>{{p.create_dt}}</a>
+                  <a href="{%url 'Detail_product' p.pk%}" class="btn btn-success">Detalis Product </a>
+                </div>
+              </div>
+            
+            
+            </div>
+        {% endfor %}
+
+    </div>
+
+ 
+  </div>
+
+
+
+
+
+<!-- 
+        <br>
+        
+        
+        <image src="{{ p.img.url }}" style="width: 100%;"/>
+        
+        <p>{{p.create_dt}}</p>
+         -->
+        
+        
+              -
+
+    
+
+
+
+
+
+
+{%endblock%}

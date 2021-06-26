@@ -1,0 +1,75 @@
+Setting any Project For Django is 
+    - make envirment by command >>> viratuenv env 
+    - actvation env 
+    -pip install django 
+    -every after install any lirary run command is ( pip freeze > requirements.txt)
+    - makemigrations command 
+    - migrate  command 
+    -createsuper user  ( django-admin createsuperuser ) 
+    - create new Project ( python manage.py strtproject project . )
+    - create new app ( python manage.py startapp  nameof app )
+    - add App to setting file 
+    - modfile Static and meda Folde in Setting File And Main URLs File and include bootstrap and js file then make static file path for base .html 
+    -create templates Folder and settinf in file 
+    - run this command (pip install widget_tweaks)>>>> this for forms bootstrap and vldation then add it in setting file 
+    - when you work on class view  in folder Templates make folde the seam name class and page inside the seam name 
+    - include all urls for application to main url 
+    -put all in admin section (admin.site.reguster(name of model ))
+    - after create any model or edite run command makemigrations and migrate
+    - when you wk=ork on user system do this :
+        in side templates Folder Creat folder name is (registration  put all pages in side for user permation )
+        put path this in side main url ( path('accounts/', include('django.contrib.auth.urls')),)
+        accounts/ login/ [name='login']
+        accounts/ logout/ [name='logout']
+        accounts/ password_change/ [name='password_change']
+        accounts/ password_change/done/ [name='password_change_done']
+        accounts/ password_reset/ [name='password_reset']
+        accounts/ password_reset/done/ [name='password_reset_done']
+        accounts/ reset/<uidb64>/<token>/ [name='password_reset_confirm']
+        accounts/ reset/done/ [name='password_reset_complete']
+        create all pages the seam name inside folder registration
+    ##################################################################
+    many thanks you shuld use it 
+            -stander Form Bootstrap  
+            
+            
+            {% load widget_tweaks %}
+
+{% if form.non_field_errors%}
+<div class="alert alert-danger" role="alerts">
+{%for error in form.non_field_errors%}
+<p {%if forloop.last%} class="mb-0" {%endif%}>{{error}}</p>
+{%endfor%}
+</div>
+{%endif%}
+
+{% for field in form %}
+    <div class="form-group">
+      {{field.label_tag}}
+
+      {%if form.is_bound%}
+        {%if field.errors%}
+           {% render_field field class="form-control is-invalid" %}
+            {%for error in field.errors%}
+              <div class="invalid-feedback">{{error}}</div>
+            {%endfor%}
+        {%else%}
+      {% render_field field class="form-control is-valid" %}
+        {%endif%}
+      {%else%}
+      {% render_field field class="form-control" %}
+
+      {%endif%}
+
+
+    </div>
+    {%if field.help_text%}
+    <small class="form-text text-muted">
+      {{field.help_text}}
+    </small>
+    {%endif%}
+
+    {% endfor %}
+
+
+    - 

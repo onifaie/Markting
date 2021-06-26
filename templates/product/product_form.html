@@ -1,0 +1,27 @@
+
+{%extends 'base.html'%}
+
+{%block content%}
+
+<h2>this page add product form</h2>
+
+
+<div class="container">
+    <div class="row">
+
+<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+    <form method="post"enctype="multipart/form-data">{% csrf_token %}
+        <!-- {{ form.as_p }} -->
+    
+    
+        {% include 'include/form.html'%}
+    
+    
+        <input type="submit" value="Save">
+    </form>
+    
+</div>
+    </div>
+</div>
+
+{%endblock%}
